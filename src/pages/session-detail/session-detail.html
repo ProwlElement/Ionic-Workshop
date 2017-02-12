@@ -1,0 +1,33 @@
+<ion-header>
+  <session-navbar
+    [session]="session"
+    (favorite)="toggleFavorite()">
+  </session-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h1>{{session.title}}</h1>
+
+  <session-info
+    [session]="session">
+  </session-info>
+
+  <session-actions
+    [session]="session"
+    (favorite)="toggleFavorite()">
+  </session-actions>
+
+  <img *ngIf="session.image" [src]="session.image" alt="{{session.title}}" />
+
+  <h3>Description:</h3>
+  <div [innerHtml]="session.description"></div>
+
+  <div *ngIf="session.speakers.length">
+    <h3>Speakers:</h3>
+
+    <session-speaker-list
+      [speakers]="session.speakers"
+      (select)="goToSpeakerDetail($event)">
+    </session-speaker-list>
+  </div>
+</ion-content>

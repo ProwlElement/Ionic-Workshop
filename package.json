@@ -1,0 +1,48 @@
+{
+  "name": "ng-vikings-2017-workshop",
+  "description": "ngVikings 2017",
+  "version": "1.1.1",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/samvloeberghs/ng-vikings-2017-workshop"
+  },
+  "config": {
+    "ionic_copy": "./config/copy.config.js"
+  },
+  "scripts": {
+    "build": "npm run ionic:build",
+    "build:prod": "npm run ionic:build:prod",
+    "clean": "ionic-app-scripts clean",
+    "ionic:build": "ionic-app-scripts build",
+    "preionic:build:prod": "node ./config/update-sw",
+    "ionic:build:prod": "ionic-app-scripts build -- --prod",
+    "ionic:serve": "ionic-app-scripts serve"
+  },
+  "dependencies": {
+    "@angular/common": "2.2.1",
+    "@angular/compiler": "2.2.1",
+    "@angular/compiler-cli": "2.2.1",
+    "@angular/core": "2.2.1",
+    "@angular/forms": "2.2.1",
+    "@angular/http": "2.2.1",
+    "@angular/platform-browser": "2.2.1",
+    "@angular/platform-browser-dynamic": "2.2.1",
+    "@angular/platform-server": "2.2.1",
+    "@ionic/storage": "1.1.7",
+    "angular-ga": "^0.2.0",
+    "angularfire2": "^2.0.0-beta.7",
+    "firebase": "^3.6.8",
+    "ionic-angular": "2.0.0",
+    "ionic-native": "2.4.1",
+    "ionicons": "3.0.0",
+    "moment-timezone": "^0.5.11",
+    "rxjs": "5.1.0",
+    "sw-toolbox": "3.4.0",
+    "zone.js": "0.6.26"
+  },
+  "devDependencies": {
+    "@ionic/app-scripts": "1.0.0",
+    "typescript": "2.0.9"
+  }
+}

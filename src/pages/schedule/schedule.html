@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar no-border-bottom>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title hidden>Schedule</ion-title>
+
+    <ion-segment [(ngModel)]="segment" (ionChange)="updateSchedule()">
+      <ion-segment-button value="all">
+        All
+      </ion-segment-button>
+      <ion-segment-button value="favorites">
+        Favorites
+      </ion-segment-button>
+    </ion-segment>
+
+  </ion-navbar>
+
+  <ion-toolbar no-border-top>
+    <ion-searchbar color="primary"
+                   (ionInput)="search$.next($event.target.value)"
+                   placeholder="Search for session">
+    </ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <session-list
+    *ngIf="!emptyState"
+    [groups]="groups$ | async"
+    [options]="segment === 'all'"
+    (toggle)="toggleFavorite($event)"
+    (select)="goToSessionDetail($event)">
+  </session-list>
+
+  <ion-list-header *ngIf="emptyState">
+      No Sessions Found
+  </ion-list-header>
+
+</ion-content>
